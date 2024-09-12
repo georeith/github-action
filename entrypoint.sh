@@ -233,7 +233,7 @@ push_to_branch() {
     CHECKOUT=${GITHUB_HEAD_REF:-${GITHUB_REF}}
     CHECKOUT=${CHECKOUT#refs/heads/}
     CHECKOUT=${CHECKOUT#refs/tags/}
-    git checkout "${CHECKOUT}"
+    git checkout "refs/remotes/origin/${CHECKOUT}"
   fi
 
   if [ -n "$(git show-ref refs/heads/${BRANCH})" ]; then
